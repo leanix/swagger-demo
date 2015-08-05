@@ -3,6 +3,8 @@ package net.leanix.swaggerdemo;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import net.leanix.swaggerdemo.core.Shelter;
+import net.leanix.swaggerdemo.resources.PetResource;
 
 
 public class SwaggerDemoApplication extends Application<AppConfiguration>
@@ -31,7 +33,7 @@ public class SwaggerDemoApplication extends Application<AppConfiguration>
             Environment environment
     )
     {
-        // nothing to do yet
+        environment.jersey().register(new PetResource(new Shelter()));
     }
 
 }
