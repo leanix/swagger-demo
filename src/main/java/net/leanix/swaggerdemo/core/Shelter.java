@@ -21,11 +21,8 @@ public class Shelter
         {
             return animals.get(name);
         }
-
-        throw new WebApplicationException(
-                "An animal with the given name does not exist.",
-                Response.Status.NOT_FOUND
-        );
+        
+        return null;
     }
 
     public void add(Animal animal)
