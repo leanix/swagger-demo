@@ -1,4 +1,4 @@
-package net.leanix.swaggerdemo;
+package net.leanix.swaggerdemo.swagger;
 
 import io.swagger.core.filter.SwaggerSpecFilter;
 import io.swagger.model.ApiDescription;

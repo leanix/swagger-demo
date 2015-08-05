@@ -6,6 +6,7 @@
     <artifactId>swagger-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
+        <basePath>/</basePath>
         <dropwizard.version>0.8.2</dropwizard.version>
         <!-- use UTF-8 for everything -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -63,6 +64,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-assets</artifactId>
+            <version>0.8.2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     
     <build>
@@ -88,9 +95,9 @@
                             <locations>net.leanix.swaggerdemo</locations>
                             <schemes>http</schemes>
                             <host>localhost:8080</host>
-                            <basePath>{{basePath}}</basePath><!-- keep this -->
-                            <swaggerDirectory>target/api-docs</swaggerDirectory>
-                            <swaggerUIDocBasePath>{{basePath}}/api-docs</swaggerUIDocBasePath>
+                            <basePath>${basePath}</basePath><!-- keep this -->
+                            <swaggerDirectory>target/classes/api-docs</swaggerDirectory>
+                            <swaggerUIDocBasePath>${basePath}api-docs</swaggerUIDocBasePath>
                             <info>
                                 <title>Swagger Demo</title>
                                 <version>v1</version>
@@ -103,14 +110,14 @@
                                 <contact>
                                     <email>daniel.pozzi@leanix.net</email>
                                     <name>Daniel Pozzi</name>
-                                    <url>https://leanix.net</url>
+                                    <url>https://dev.leanix.net/</url>
                                 </contact>
                                 <license>
                                     <url>http://opensource.org/licenses/MIT</url>
                                     <name>MIT</name>
                                 </license>
                             </info>
-                            <swaggerInternalFilter>net.leanix.swaggerdemo.AppSwaggerSpecFilter</swaggerInternalFilter>
+                            <swaggerInternalFilter>net.leanix.swaggerdemo.swagger.AppSwaggerSpecFilter</swaggerInternalFilter>
                         </apiSource>
                     </apiSources>
                 </configuration>

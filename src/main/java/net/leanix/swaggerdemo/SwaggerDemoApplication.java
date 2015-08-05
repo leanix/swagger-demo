@@ -1,6 +1,7 @@
 package net.leanix.swaggerdemo;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import net.leanix.swaggerdemo.core.Animal;
@@ -26,7 +27,11 @@ public class SwaggerDemoApplication extends Application<AppConfiguration>
     @Override
     public void initialize(Bootstrap<AppConfiguration> bootstrap)
     {
-        // nothing to do yet
+        //swagger ui
+        bootstrap.addBundle(new AssetsBundle("/swagger-ui/dist", "/docs", "index.html", "swagger-ui"));
+        
+        //json spec
+        bootstrap.addBundle(new AssetsBundle("/api-docs", "/api-docs", null, "spec"));        
     }
 
     @Override
