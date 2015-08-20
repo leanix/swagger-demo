@@ -17,6 +17,9 @@ public class Shelter
 
     public Animal find(String name)
     {
+        if (name == null)
+            return null;
+        
         if (animals.containsKey(name))
         {
             return animals.get(name);
