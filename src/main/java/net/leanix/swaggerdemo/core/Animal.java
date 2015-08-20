@@ -2,6 +2,8 @@ package net.leanix.swaggerdemo.core;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Animal demo class.
@@ -11,12 +13,15 @@ import io.swagger.annotations.ApiModelProperty;
 public class Animal
 {
     @JsonProperty
+    @NotEmpty
     private String name;
     
     @JsonProperty
+    @NotEmpty
     private String race;
     
     @JsonProperty
+    @NotNull
     private Gender gender;
     
     private boolean dangerous = false;
