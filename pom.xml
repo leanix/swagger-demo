@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
- 
+
     <groupId>net.leanix</groupId>
     <artifactId>swagger-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    
+
     <pluginRepositories>
         <pluginRepository>
             <id>sonatype-snapshot</id>
@@ -71,7 +71,7 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -99,10 +99,10 @@
                             <swaggerDirectory>target/classes/api-docs</swaggerDirectory>
                             <swaggerUIDocBasePath>${basePath}api-docs</swaggerUIDocBasePath>
                             <info>
-                                <title>Swagger Demo</title>
+                                <title>Swagger Demo for FrOSCon 2015</title>
                                 <version>v1</version>
                                 <description>
-                                    This is a sample.
+                                    This is a very simple pet store.
                                 </description>
                                 <termsOfService>
                                     http://www.github.com/kongchen/swagger-maven-plugin
