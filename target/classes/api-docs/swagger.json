@@ -1,0 +1,140 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a very simple pet store.",
+    "version" : "v1",
+    "title" : "Swagger Demo for FrOSCon 2015",
+    "termsOfService" : "http://www.github.com/kongchen/swagger-maven-plugin",
+    "contact" : {
+      "name" : "Daniel Pozzi",
+      "url" : "https://dev.leanix.net/",
+      "email" : "daniel.pozzi@leanix.net"
+    },
+    "license" : {
+      "name" : "MIT",
+      "url" : "http://opensource.org/licenses/MIT"
+    }
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "pets"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/pets" : {
+      "get" : {
+        "tags" : [ "pets" ],
+        "summary" : "getAll",
+        "description" : "Lists all the animals in the shelter.",
+        "operationId" : "getAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Animal"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "pets" ],
+        "summary" : "add",
+        "description" : "Add a pet to the shelter",
+        "operationId" : "add",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Animal"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Animal"
+            }
+          },
+          "422" : {
+            "description" : "Invalid entity"
+          }
+        }
+      }
+    },
+    "/pets/{name}" : {
+      "get" : {
+        "tags" : [ "pets" ],
+        "summary" : "byName",
+        "description" : "Get a pet by its name",
+        "operationId" : "byName",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Animal"
+            }
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "pets" ],
+        "summary" : "remove",
+        "description" : "Remove a pet from the shelter",
+        "operationId" : "remove",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Animal"
+            }
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Animal" : {
+      "type" : "object",
+      "required" : [ "gender" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "race" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string",
+          "enum" : [ "FEMALE", "MALE", "UNCERTAIN" ]
+        }
+      }
+    }
+  }
+}

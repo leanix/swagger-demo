@@ -1,0 +1,7 @@
+net/leanix/swaggerdemo/SwaggerDemoApplication.class
+net/leanix/swaggerdemo/resources/PetResource.class
+net/leanix/swaggerdemo/AppConfiguration.class
+net/leanix/swaggerdemo/swagger/AppSwaggerSpecFilter.class
+net/leanix/swaggerdemo/core/Animal.class
+net/leanix/swaggerdemo/core/Gender.class
+net/leanix/swaggerdemo/core/Shelter.class
